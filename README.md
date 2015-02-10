@@ -21,8 +21,8 @@ Here you'll find our full list of open source projects on GitHub, from libraries
 
 ## Articles
 
-* [The SVG Workflow](https://github.com/Aerolab/svg)
-* [Criterios de Calidad -Spanish-](https://github.com/Aerolab/criterios)
+* [The SVG Workflow](http://aerolab.github.io/svg)
+* [Criterios de Calidad -Spanish-](http://aerolab.github.io/criterios)
 
 
 ## Design
