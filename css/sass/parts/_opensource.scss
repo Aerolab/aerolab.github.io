@@ -1,0 +1,109 @@
+// Header Image
+.hero-opensource figure.hero-image {
+  background-image: url(../images/page-opensource/hero-opensource.jpg);
+}
+@media(-webkit-min-device-pixel-ratio: 1.5) {
+  .hero-opensource figure.hero-image {
+    background-image: url(../images/page-opensource/hero-opensource@2x.jpg);
+  }
+}
+@media(max-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5) {
+  .hero-opensource figure.hero-image {
+    background-image: url(../images/page-opensource/hero-opensource-mobile@2x.jpg);
+  }
+}
+
+.work-display {
+
+  // JSConf Game
+
+  &.gh-jsconf-game {
+    background-position: center center;
+    height: 380px;
+    background-size: cover;
+    background-color: #3b3b3b;
+
+    &:before,
+    .plus-icon:before, .plus-icon:after,
+    &:hover .more-icon-wrapper, &:focus .more-icon-wrapper { background-color: #cf3535; }
+  }
+
+  // JSConf Dashboard
+
+  &.gh-jsconf-dashboard {
+    background-position: center center;
+    height: 380px;
+    background-size: cover;
+    background-color: #3b3b3b;
+
+    &:before,
+    .plus-icon:before, .plus-icon:after,
+    &:hover .more-icon-wrapper, &:focus .more-icon-wrapper { background-color: #3232bd; }
+  }
+
+  // JSConf Site
+
+  &.gh-jsconf-site {
+    background-position: center center;
+    height: 643px;
+    background-size: cover;
+    background-color: #3b3b3b;
+
+    &:before,
+    .plus-icon:before, .plus-icon:after,
+    &:hover .more-icon-wrapper, &:focus .more-icon-wrapper { background-color: #257fe4; }
+  }
+
+  // Jukebox
+
+  &.gh-svg {
+    background-position: center center;
+    height: 380px;
+    background-size: cover;
+    background-color: #3b3b3b;
+
+    &:before,
+    .plus-icon:before, .plus-icon:after,
+    &:hover .more-icon-wrapper, &:focus .more-icon-wrapper { background-color: #ecae07; }
+  }
+
+  // Blockrain
+
+  &.gh-blockrain {
+    background-position: center center;
+    height: 380px;
+    background-size: cover;
+    background-color: #3b3b3b;
+
+    &:before,
+    .plus-icon:before, .plus-icon:after,
+    &:hover .more-icon-wrapper, &:focus .more-icon-wrapper { background-color: #2ec293; }
+  }
+
+  // Grabbit
+
+  &.gh-midnight {
+    background-position: center center;
+    height: 380px;
+    background-size: cover;
+    background-color: #3b3b3b;
+
+    &:before,
+    .plus-icon:before, .plus-icon:after,
+    &:hover .more-icon-wrapper, &:focus .more-icon-wrapper { background-color: #7d129c; }
+  }
+
+  // Criterios de Calidad
+
+  &.gh-criterios {
+    background-position: center center;
+    height: 645px;
+    background-size: cover;
+    background-color: #3b3b3b;
+    margin-top: 126px;
+
+    &:before,
+    .plus-icon:before, .plus-icon:after,
+    &:hover .more-icon-wrapper, &:focus .more-icon-wrapper { background-color: #e77213; }
+  }
+}

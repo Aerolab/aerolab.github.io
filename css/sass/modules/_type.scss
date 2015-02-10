@@ -1,0 +1,129 @@
+// Text
+
+.small-text { font-size: $font-size-small; }
+
+p { margin: 0; }
+
+// Big Number
+
+.big-number {
+  font-size: 114px;
+  font-weight: $semibold;
+  color: #ff7b00;
+  line-height: 1;
+}
+
+// Links
+
+p a,
+.a {
+  border-bottom: 1px solid $orange;
+  padding: 0 0 1px;
+
+  &:hover, &:focus { border-bottom-style: dashed; }
+
+  &:active { border-bottom-style: dotted; }
+}
+
+// Featured Non-Headings
+
+.fn-h1 { font-size: 48px; }
+
+// Headings
+
+h1, .h1, h2, .h2, h3, .h3,
+h4, .h4, h5, .h5, h6, .h6 {
+  line-height: $headings-line-height;
+  margin: 0;
+}
+
+h1, .h1, h2, .h2, h4, .h4 { letter-spacing: 0.2em; }
+h3, .h3, h5, .h5, .fn-h1, .small-text { letter-spacing: 0.1em; }
+h1, .h1, h4, .h4, h5, .h5 { font-weight: $semibold; }
+h2, .h2, h3, .h3, .fn-h1 { font-weight: $light; }
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 { text-transform: uppercase; }
+h1, .h1, h4, .h4 {
+  &.dashed {
+    position: relative;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+
+    &.dashed-white {
+      color: #fff;
+
+      &:before { background: #fff; }
+    }
+  }
+}
+
+h1, .h1 {
+  font-size: $h1;
+
+  &.dashed {
+    padding: 0 0 14px;
+
+    &:before {
+      width: 34px;
+      height: 5px;
+      background: #000;
+      border-radius: 2px;
+    }
+  }
+}
+
+h2, .h2 {
+  font-size: $h2;
+
+  &.has-plus-btn {
+    position: relative;
+    display: inline-block;
+
+    .plus-icon {
+      position: absolute;
+      right: -13px;
+      top: 0;
+    }
+  }
+}
+
+h3, .h3 { font-size: $h3; }
+
+h4, .h4 {
+  font-size: $h4;
+
+  &.dashed {
+    padding: 0 0 8px;
+
+    &:before {
+      width: 5px;
+      height: 2px;
+      background: $orange;
+    }
+
+    &.dashed-black:before { background: #000; }
+  }
+}
+
+h5, .h5 {
+  font-size: $h5;
+}
+
+h6, .h6 {
+  font-size: $h6;
+  font-weight: $normal;
+}
+
+// Lists
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+strong, b { font-weight: 600; }

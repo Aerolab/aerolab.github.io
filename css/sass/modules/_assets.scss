@@ -1,0 +1,808 @@
+// Overlays 100% x 100%
+
+.overlay,
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  @include transition(background-color 0.3s ease, opacity 0.3s ease, visibility 0.3s ease);
+}
+
+// Table DIV Vertical Align
+
+.table-va-middle {
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+
+.table-cell {
+  width: 100%;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.table-cell-inner { display: inline-block; }
+
+// Icon in white square
+
+.more-icon-wrapper {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+
+  @include transition(background-color 0.3s ease, border-color 0.3s ease);
+
+  .plus-icon {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -6px 0 0 -6px;
+  }
+}
+
+// Sprite
+
+.sprite {
+  display: block;
+  background: url(../images/sprite.svg) no-repeat;
+  background-size: 512px 512px;
+}
+
+.instagram-icon-small {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-position: -24px -28px;
+}
+
+.coffee-icon {
+  width: 64px;
+  height: 64px;
+  background-position: -198px 0;
+}
+
+.beer-icon {
+  width: 64px;
+  height: 64px;
+  background-position: -66px 0;
+}
+
+.tetris-icon {
+  width: 64px;
+  height: 64px;
+  background-position: -330px 0;
+}
+
+.heart-icon {
+  width: 64px;
+  height: 64px;
+  background-position: -396px 0;
+}
+
+.briefcase-icon {
+  width: 64px;
+  height: 64px;
+  background-position: -264px 0;
+}
+
+.code-icon {
+  width: 64px;
+  height: 64px;
+  background-position: 0 -66px;
+}
+
+.cake-icon {
+  width: 64px;
+  height: 64px;
+  background-position: -132px 0;
+}
+
+.svg-icon {
+  width: 64px;
+  height: 64px;
+  background-position: -132px -66px;
+}
+
+.startupmap-icon {
+  width: 64px;
+  height: 64px;
+  background-position: -198px -66px;
+}
+
+.aeroleague-icon {
+  width: 74px;
+  height: 64px;
+  background-position: -264px -66px;
+}
+
+.dribbble-icon {
+  width: 64px;
+  height: 64px;
+  background-position: 0 -132px;
+}
+
+.quality-icon {
+  width: 64px;
+  height: 64px;
+  background-position: -396px -66px;
+}
+
+// Paginations
+
+.pagination {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      a {
+        display: block;
+
+        font-family: 'Aeroicons';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        &:hover, &:focus { color: $orange; }
+
+        &:before { content: "\e602"; }
+      }
+    }
+  }
+}
+
+// 3D Effect Boxes
+
+.box-3d-display {
+  position: relative;
+  z-index: 10;
+
+  .b3d-presentation {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #000;
+
+    @include transition(border 0.3s ease);
+  }
+
+  .b3d-contents {
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    width: 100%;
+    height: 100%;
+    border: 4px solid $orange;
+    background: #fff;
+    visibility: hidden;
+    opacity: 0;
+
+    @include transform(translate(20px, 20px));
+
+    @include transition(transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease);
+  }
+
+  &:hover, &.active {
+    .b3d-presentation {
+      border-style: dashed;
+      border-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .b3d-contents {
+      visibility: visible;
+      opacity: 1;
+
+      @include transform(translate(0, 0));
+    }
+  }
+}
+
+// Big Title Box
+
+.big-title-box {
+  position: relative;
+  background: #fff;
+
+  .btb-open {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    border: 1px solid #fff;
+    opacity: 1;
+    visibility: visible;
+
+    @include transition(visibility 0.3s ease, opacity 0.3s ease, border-color 0.3s ease);
+
+    .plus-icon {
+      &:before, &:after { background-color: $orange; }
+    }
+
+    &:hover {
+      border-color: $orange;
+
+      .btb-title {
+        h2 { letter-spacing: 0.3em; }
+
+        .plus-icon { @include transform(rotate(360deg)); }
+      }
+    }
+  }
+
+  &.wow .btb-open {
+    visibility: hidden;
+  }
+  &.wow.animated .btb-open {
+    visibility: visible;
+  }
+
+  .btb-title {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: -22px auto 0;
+    text-align: center;
+
+    @include user-select(none);
+
+    @include transition(letter-spacing 0.3s ease);
+
+    h2 { @include transition(letter-spacing 0.3s ease); }
+  }
+
+  .btb-contents {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: 2px solid $orange;
+
+    @include transform(scale(0.9));
+
+    visibility: hidden;
+    opacity: 0;
+
+    @include transition(transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease);
+
+    .icon-close {
+      font-size: 15px;
+      color: $orange;
+      opacity: 0;
+      z-index: 2;
+
+      @include transition(transform 0.2s ease 0.3s, opacity 0.2s ease 0.3s);
+
+      @include transform(scale(0));
+
+      &:hover, &:focus { color: $text-color; }
+    }
+  }
+
+  // when Such Team contents are open
+
+  &.btb-opened {
+    .btb-open {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .icon-close {
+      opacity: 1;
+
+      @include transform(scale(1));
+    }
+
+    .btb-contents {
+      visibility: visible;
+      opacity: 1;
+
+      @include transform(scale(1));
+    }
+  }
+}
+
+// Big Background Box
+
+.big-bg-box {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+// Simple Box
+
+.simple-box {
+  display: block;
+  background: #fff;
+}
+
+a.simple-box {
+  border: 1px solid #fff;
+
+  @include transition(border-color 0.3s ease);
+
+  &:hover, &:focus { border-color: $orange; }
+}
+
+// Simple Box with border
+
+.simple-border-box {
+  position: relative;
+  background: #fff;
+  border-style: solid;
+  border-color: #000;
+
+  &.sbb-medium { border-width: 2px; }
+
+  &.sbb-light { border-width: 1px; }
+}
+
+// Stroked Box
+
+.stroked-box {
+  display: block;
+  position: relative;
+  background: #fff;
+  border: 2px solid #000;
+  padding: 0 0 100%;
+
+  @include transition(border-color 0.3s ease);
+
+  .more-icon-wrapper {
+    width: 42px;
+    height: 42px;
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+    bottom: -2px;
+    right: -2px;
+  }
+
+  .sb-title {
+    position: absolute;
+    left: 20px;
+    right: 58px;
+    bottom: 26px;
+    z-index: 5;
+    opacity: 1;
+    visibility: visible;
+
+    @include transform(translateY(0));
+
+    @include transition(transform 0.3s ease, visibility 0.3s ease, opacity 0.3s ease);
+  }
+
+  .sb-description {
+    position: absolute;
+    left: 20px;
+    right: 58px;
+    bottom: 17px;
+    z-index: 5;
+    opacity: 0;
+    visibility: hidden;
+
+    @include transform(translateY(5px));
+
+    @include transition(transform 0.3s ease, visibility 0.3s ease, opacity 0.3s ease);
+
+    h4 { margin: 0 0 10px; }
+
+    .small-text { font-weight: $normal; }
+  }
+
+  .sprite {
+    @include transition(transform 0.3s ease, opacity 0.3s ease);
+  }
+
+  &:hover, &:focus {
+    border-color: $orange;
+
+    .more-icon-wrapper { border-color: $orange; }
+
+    .plus-icon {
+      &:before, &:after { background: $orange; }
+    }
+
+    .sprite {
+      opacity: 0;
+
+      @include transform(translateY(-5px));
+    }
+
+    .sb-title {
+      opacity: 0;
+      visibility: hidden;
+
+      @include transform(translateY(-5px));
+    }
+
+    .sb-description {
+      opacity: 1;
+      visibility: visible;
+
+      @include transform(translateY(0));
+    }
+  }
+
+  &:hover, &:focus {
+    .more-icon-wrapper .plus-icon { @include transform(rotate(360deg)); }
+  }
+
+  &.lp-coming-soon {
+    .more-icon-wrapper { display: none; }
+
+    .coming-soon-label {
+      position: absolute;
+      left: 20px;
+      top: 25px;
+      color: #000;
+      font-size: 14px;
+      z-index: 3;
+      opacity: 0;
+      visibility: hidden;
+
+      @include transform(translateY(5px));
+
+      @include transition(transform 0.3s ease, visibility 0.3s ease, opacity 0.3s ease);
+    }
+
+    &:hover, &:focus {
+      .coming-soon-label {
+        opacity: 1;
+        visibility: visible;
+
+        @include transform(translateY(0));
+      }
+    }
+  }
+}
+
+// Heros
+
+.hero {
+  position: relative;
+  margin: 0 auto 10px auto;
+  padding: 0;
+
+  .hero-image {
+    height: 580px + 66px; // The header took 66 extra px originally
+    margin: 0 auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #f0f0f0;
+  }
+
+  .hero-map {
+    width: 100%;
+    height: 580px;
+    vertical-align: top;
+    background-color: #171717;
+
+    .mapbox {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .hero-intro {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    .hi-inner {
+      position: absolute;
+      top: 200px;
+      left: 30px;
+    }
+
+    h1 { margin: 0 0 24px; }
+
+    .hi-lead { color: #fff; }
+
+    &.hi-black {
+      .hi-lead { color: #000; }
+    }
+  }
+}
+
+.hero-animated-gif {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0;
+  visibility: hidden;
+
+  @include transform(translateZ(0));
+
+  @include backface-visibility(hidden);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  @include transition(background-color 0.3s ease, opacity 0.3s ease, visibility 0.3s ease);
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.animated-hero-trigger {
+  cursor: default;
+
+  @include transition(color 0.3s ease);
+
+  &:hover {
+    color: #ffffff;
+
+    .bracket {
+      color: #ffffff;
+    }
+  }
+
+  .bracket {
+    color: $orange;
+    @include transition(color 0.3s ease);
+  }
+}
+
+.container {
+  &.over-the-hero {
+    margin: -140px auto 0;
+
+    .oth-push-down { padding: 140px 5px 0; }
+  }
+}
+
+.push-one-down {
+  position: relative;
+
+  .pod-bottom-left {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+// Work (project) display
+
+.work-display {
+  position: relative;
+  z-index: 1;
+  display: block;
+  background-repeat: no-repeat;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -4px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    z-index: 5;
+
+    @include transition(transform 0.3s ease);
+  }
+
+  .wd-title {
+    position: absolute;
+    left: 31px;
+    bottom: 25px;
+    z-index: 5;
+    opacity: 1;
+    visibility: visible;
+
+    @include transform(translateY(0));
+
+    @include transition(transform 0.3s ease, visibility 0.3s ease, opacity 0.3s ease);
+
+    h3 { color: #fff; }
+  }
+
+  .wd-description {
+    position: absolute;
+    left: 31px;
+    bottom: 23px;
+    z-index: 5;
+    opacity: 0;
+    visibility: hidden;
+
+    @include transform(translateY(20px));
+
+    @include transition(transform 0.3s ease, visibility 0.3s ease, opacity 0.3s ease);
+
+    h3 {
+      color: #fff;
+      margin: 0 0 19px;
+    }
+
+    p {
+      color: #fff;
+      max-width: 80%;
+      font-weight: $normal;
+    }
+  }
+
+  .overlay {
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    visibility: hidden;
+    z-index: 2;
+  }
+
+  .more-icon-wrapper {
+    right: 0;
+    z-index: 5;
+  }
+
+  // Hover states
+
+  &:hover, &:focus {
+    &:before { @include transform(translateY(4px)); }
+
+    .overlay {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .more-icon-wrapper {
+      .plus-icon {
+        @include transform(rotate(360deg));
+
+        &:before, &:after { background-color: #fff; }
+      }
+    }
+
+    .wd-title {
+      opacity: 0;
+      visibility: hidden;
+
+      @include transform(translateY(-20px));
+    }
+
+    .wd-description {
+      opacity: 1;
+      visibility: visible;
+
+      @include transform(translateY(0));
+    }
+  }
+
+  &.wd-coming-soon {
+    .more-icon-wrapper { display: none; }
+
+    .coming-soon-label {
+      position: absolute;
+      left: 30px;
+      top: 30px;
+      color: #fff;
+      font-size: 14px;
+      z-index: 3;opacity: 0;
+      visibility: hidden;
+
+      @include transform(translateY(5px));
+
+      @include transition(transform 0.3s ease, visibility 0.3s ease, opacity 0.3s ease);
+    }
+
+    &:hover, &:focus {
+      .coming-soon-label {
+        opacity: 1;
+        visibility: visible;
+
+        @include transform(translateY(0));
+      }
+    }
+  }
+}
+
+// Tabs
+
+.tabs {
+  box-shadow: inset 0 -1px #ccc;
+  overflow: hidden;
+
+  a {
+    float: left;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 4px 0 15px;
+    margin: 0 0 0 35px;
+    letter-spacing: 0.2em;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 4px;
+      bottom: 0;
+      height: 3px;
+      z-index: 1;
+      border-bottom: 3px solid #000;
+      visibility: hidden;
+      opacity: 0;
+
+      @include transform(scale(0, 1));
+
+      @include transition(transform 0.175s ease, opacity 0.175s ease, visibility 0.175s ease);
+    }
+
+    &.email {
+      float: right;
+      text-transform: none;
+      letter-spacing: 0.15em;
+
+      &:after {
+        content: "\00BB";
+        color: $orange;
+        font-weight: normal;
+        margin-left: 5px;
+      }
+
+      &:before { right: 0; }
+    }
+
+    &:first-child { margin: 0; }
+
+    &.active, &:hover {
+      &:before {
+        visibility: visible;
+        opacity: 1;
+
+        @include transform(scale(1, 1));
+      }
+    }
+
+    &.active {
+      &:before { border-bottom-color: $orange; }
+    }
+  }
+
+
+  &.wow {
+    a.active, a:hover {
+      &:before {
+        visibility: hidden;
+      }
+    }
+  }
+
+  &.wow.animated {
+    a.active, a:hover {
+      &:before {
+        visibility: visible;
+      }
+    }
+  }
+}

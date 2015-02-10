@@ -1,0 +1,13 @@
+{
+  "name": "Aerolab Github",
+  "version": "1.0.0",
+  "description": "Open Source Projects by Aerolab",
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-concat": "^2.4.1",
+    "gulp-header": "^1.1.1",
+    "gulp-uglify": "^1.0.1"
+  },
+  "author": "Aerolab",
+  "homepage": "http://aerolab.github.io"
+}

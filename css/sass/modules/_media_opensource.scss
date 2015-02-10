@@ -1,0 +1,31 @@
+// Lab Page (Responsive)
+
+@media only screen and (max-width: 840px) {
+  .section-opensource {
+    [class^="col-md-"], [class^="col-sm-"] {
+      display: block;
+      width: auto;
+      float: none;
+      margin: 0;
+    }
+
+    a.work-display { height: 300px; }
+    .work-display.gh-criterios { margin-top: 10px; }
+
+    .stroked-box { padding: 0 0 300px; }
+
+    .container.over-the-hero .oth-push-down { padding-top: 0; }
+
+    .push-one-down .pod-bottom-left { position: static; }
+
+    .random-push-down-35 { padding-top: 0; }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .section-opensource {
+    a.work-display { height: 250px; }
+
+    .stroked-box { padding: 0 0 250px; }
+  }
+}

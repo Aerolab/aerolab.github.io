@@ -1,0 +1,393 @@
+.logo {
+  float: left;
+
+  a {
+    position: relative;
+    display: block;
+    width: 36px;
+    height: 26px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-indent: 100%;
+
+    background: rgba(0,0,0,0.0001); /* Ask the IE guys */
+
+    .svg-logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .svg-logo-path {
+      fill: $orange;
+
+      @include transition(fill 0.3s ease);
+    }
+
+    &:hover, &:focus {
+      .svg-logo-path { fill: #000; }
+    }
+  }
+}
+
+.menu-open {
+  position: relative;
+  float: right;
+  width: 22px + 10px*2;
+  height: 17px + 10px*2;
+  padding: 10px;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  margin: -6px -10px 0 0;
+
+  background: rgba(0,0,0,0.0001); /* Ask the IE guys */
+
+  span {
+    position: absolute;
+    top: 17px;
+    left: 10px;
+    right: 10px;
+    display: block;
+    height: 3px;
+    background: $orange;
+
+    @include transition(background-color 0.3s ease);
+
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $orange;
+
+      @include transition(background-color 0.3s ease);
+
+      @include transition(transform 0.3s ease, background-color 0.3s ease);
+    }
+
+    &:before { top: -7px; }
+
+    &:after { bottom: -7px; }
+  }
+
+  &:hover, &:focus {
+    span, span:before, span:after { background: #000; }
+  }
+}
+
+.menu-close {
+  position: absolute;
+  top: 15px;
+  right: 22px;
+  padding: 10px;
+  font-size: 15px;
+  color: $orange;
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+
+  @include transform(scale(0));
+
+  @include transition(transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.3s cubic-bezier(0.23, 1, 0.32, 1));
+}
+
+.menu-close-button {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+
+  &.active {
+    .icon-close {
+      opacity: 1;
+      visibility: visible;
+
+      @include transform(scale(1));
+
+      @include transition-delay(0.3s);
+    }
+  }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  @include transition(transform 0.3s ease, background-color 0.3s ease);
+
+  @include transform(translateZ(0));
+
+  .header-real {
+    background: #fff;
+    padding: 20px 0;
+  }
+
+  &.header-pinned,
+  &.header-top,
+  &.header-not-top { @include transform(translateY(0) translateZ(0)); }
+
+  &.header-unpinned { @include transform(translateY(-100%) translateZ(0)); }
+}
+
+// Navigation
+
+.menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 60%;
+  min-width: 280px;
+  background: #fff;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+
+  @include transform(translateX(100%) translateZ(0));
+
+  @include transition(transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.4s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1));
+
+  .menu-inner {
+    position: absolute;
+    left: 180px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    min-width: 240px;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      border-left: 1px dashed #ccc;
+    }
+
+    nav {
+      position: relative;
+      z-index: 2;
+      padding: 80px 0;
+      overflow-y: scroll;
+      overflow-y: auto;
+      height: 100%;
+
+      a {
+        position: relative;
+        display: block;
+        font-size: 36px;
+        padding: 5px 30px 8px;
+        line-height: 1;
+        margin: 45px 0 0;
+        overflow: hidden;
+        opacity: 0;
+
+        @include transform(translateX(-10px));
+
+        @include transition(transform 0.3s ease, opacity 0.3s ease);
+
+        &:first-child { margin: 0; }
+
+        span {
+          display: block;
+          font-weight: $normal;
+          margin: 14px 0 0;
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          width: 3px;
+          z-index: 1;
+          background: #000;
+          visibility: hidden;
+          opacity: 0;
+
+          @include transform(scale(1, 0));
+
+          @include transition(transform 0.175s ease, opacity 0.175s ease, visibility 0.175s ease);
+
+          @include transform-origin(0 50% 0);
+        }
+
+        &.active {
+          &:before { background: $orange; }
+        }
+
+        &.active, &:hover {
+          &:before {
+            visibility: visible;
+            opacity: 1;
+
+            @include transform(scale(1, 1));
+          }
+        }
+      }
+    }
+  }
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+
+    @include transform(translateX(0) translateZ(0));
+
+    nav {
+      a {
+        opacity: 1;
+
+        @include transform(translateX(0));
+
+        &:first-child { @include transition-delay(0.2s); }
+        &:nth-child(2) { @include transition-delay(0.225s); }
+        &:nth-child(3) { @include transition-delay(0.25s); }
+        &:nth-child(4) { @include transition-delay(0.275s); }
+        &:nth-child(5) { @include transition-delay(0.3s); }
+        &:nth-child(6) { @include transition-delay(0.325s); }
+      }
+    }
+  }
+}
+
+// Header Themes
+
+.header-transparent .header-real { background: transparent; }
+
+.header-transparent-black {
+  .logo a .svg-logo-path { fill: #000; }
+
+  .menu-open {
+    span,
+    span:before, span:after { background: #000; }
+  }
+
+  .header-real { 
+    background: transparent;
+  }
+}
+
+.header-transparent-white {
+  .logo a .svg-logo-path { fill: #fff; }
+
+  .menu-open {
+    span,
+    span:before, span:after { background: #fff; }
+  }
+  
+  .header-real { background: transparent; }
+}
+
+.header-transparent-orange {
+  .logo a .svg-logo-path { fill: $orange; }
+
+  .menu-open {
+    span,
+    span:before, span:after { background: $orange; }
+  }
+  
+  .header-real { background: transparent; }
+}
+
+.header-black {
+  .logo a .svg-logo-path { fill: #000; }
+
+  .menu-open {
+    span,
+    span:before, span:after { background: #000; }
+  }
+}
+
+.header-white {
+  .header-real { background: transparent; }
+
+  .logo a .svg-logo-path { fill: #fff; }
+
+  .menu-open {
+    span,
+    span:before, span:after { background: #fff; }
+  }
+}
+
+
+/* Size the menu based on viewport size */
+@media(max-width:1024px) {
+  .menu {
+    .menu-inner {
+      left: 40px;
+    }
+  }
+}
+
+@media(max-height:850px) {
+  .menu {
+    .menu-inner nav {
+      padding: 60px 0 30px 0px;
+      a {
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+@media(max-height:700px) {
+  .menu {
+    .menu-inner nav {
+      padding-top: 50px;
+      padding-bottom: 8px;
+
+      a {
+        font-size: 24px;
+        margin-top: 10px;
+      }
+      span.small-text {
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+@media(max-height:450px) {
+  .menu {
+    .menu-inner nav {
+      a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        span.small-text {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media(max-height:380px) {
+  .menu {
+    .menu-inner nav {
+      padding: 10px 0 10px 0;
+      a {
+        font-size: 18px;
+        margin-top: 0;
+      }
+    }
+  }
+  .menu-close {
+    top: 21px;
+    right: 20px;
+  }
+}

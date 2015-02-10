@@ -1,0 +1,112 @@
+// Media Queries
+
+/* Heros */
+
+@media (max-width: 1024px) {
+  .hero .hero-image { height: 380px; }
+
+  .hero .hero-intro .hi-inner { top: 120px; }
+
+  .container.over-the-hero {
+    margin-top: -60px;
+    padding-top: 0;
+
+    .oth-push-down { padding: 60px 5px 0; }
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .container-10 {
+
+    .col-md-100, .col-md-1-3 {
+      padding: 0 5px;
+    }
+  }
+
+  .container.over-the-hero {
+    margin-top: -60px;
+    padding-top: 0;
+  }
+
+  .header .header-real {
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    .container {
+      padding-left: 10px;
+      padding-right: 15px;
+    }
+  }
+
+  .menu-close-button .icon-close {
+    top: 10px;
+    right: 13px;
+  }
+
+  .main {
+    padding-bottom: 50px;
+  }
+
+  .hero .hero-image { height: 320px + 56px; }
+
+  .hero .hero-intro {
+    .hi-inner {
+      left: 15px;
+      right: 15px;
+    }
+
+    h1 { font-size: 48px; }
+
+    .hi-inner { top: 80px + 40px; }
+  }
+
+  // 3D Box
+
+  .box-3d-display {
+    .b3d-presentation {
+      display: none;
+    }
+    .b3d-contents {
+      left: 0;
+      top: 0;
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      @include transform(none);
+    }
+  }
+}
+
+// Assets
+
+@media only screen and (max-width: 920px) {
+  .stroked-box {
+    .sb-title { bottom: 16px; }
+
+    .sb-description { display: none; }
+
+    &:hover, &:focus {
+      .sprite {
+        opacity: 1;
+
+        @include transform(translateY(0));
+      }
+
+      .sb-title {
+        opacity: 1;
+        visibility: visible;
+
+        @include transform(translateY(0));
+      }
+
+      .sb-description { visibility: hidden; }
+    }
+  }
+}
+
+@import "media_opensource";

@@ -1,0 +1,13 @@
+input, textarea {}
+
+textarea {}
+
+::-webkit-input-placeholder { }
+:-moz-placeholder { }
+::-moz-placeholder { }
+:-ms-input-placeholder { }
+
+:focus:-ms-input-placeholder { }
+:focus::-moz-placeholder { }
+:focus:-moz-placeholder { }
+:focus::-webkit-input-placeholder { }

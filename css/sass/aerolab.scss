@@ -1,0 +1,209 @@
+/*
+ * Aerolab
+ *
+ * Buenos Aires, Argentina
+ * Copyright 2014
+ */
+
+/*
+ * Bourbon
+ */
+
+  @import "bourbon/bourbon";
+
+  @mixin visibility-animation($opacity-start, $visibility-start, $duration) {
+    visibility: $visibility-start;
+    opacity: $opacity-start;
+
+    @include transition(opacity $duration ease, visibility $duration ease);
+  }
+
+  @mixin grayscale-off {
+    -webkit-filter: none;
+    filter: none;
+
+    -webkit-filter: grayscale(10%);
+    -webkit-filter: grayscale(0.1);
+    filter: grayscale(10%);
+  }
+
+  @mixin grayscale-off-x2 {
+    -webkit-filter: none;
+    filter: none;
+  }
+
+  @mixin grayscale-on {
+    -webkit-filter: grayscale(100%);
+    -webkit-filter: grayscale(1);
+    filter: grayscale(100%);
+
+    filter: url('resources/grayscale.svg#grayscale');
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    filter: gray;
+  }
+
+  @mixin hard-grayscale {
+    -webkit-filter: grayscale(100%) brightness(0);
+    -webkit-filter: grayscale(1) brightness(0);
+    filter: grayscale(100%) brightness(0);
+
+    filter: url('resources/grayscale.svg#grayscale');
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    filter: gray;
+  }
+
+/*
+ * Box Sizing
+ */
+
+  *, *:after, *:before {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    @include box-sizing(border-box);
+  }
+
+/*
+ * Normalize
+ */
+
+  @import "modules/normalize";
+
+/*
+ * Variables
+ */
+
+  $text-color:              #000;
+  $link-color:              $text-color;
+  $font-size:               18px;
+  $font-size-small:         14px;
+  $letter-spacing:          0.05em;
+  $line-height:             1.5;
+  $sans-serif-font-family:  'Dosis', sans-serif;
+  $serif-font-family:       'Times New Roman', serif;
+
+  $bold:                    700;
+  $semibold:                600;
+  $normal:                  400;
+  $light:                   300;
+
+  $headings-line-height:    1.2;
+  $h1:                      60px;
+  $h2:                      36px;
+  $h3:                      24px;
+  $h4:                      16px;
+  $h5:                      14px;
+  $h6:                      10px;
+
+  $orange:                  #ff7b00;
+
+  $dribbble:                #ea4c89;
+  $lemon:                   #f7d043;
+  $xapo:                    #fc4c42;
+  $mercadolibre:            #fad000;
+
+  $cyphers-spacing:         16px;
+
+  $body-bg:                 #fff;
+  $selection-bg:            #000;
+  $selection-color:         #fff;
+
+/*
+ * Main
+ */
+
+  html { height: 100%; }
+
+  body {
+    font: $normal $font-size $sans-serif-font-family;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+    color: $text-color;
+    background: $body-bg;
+    min-width: 320px;
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .main {
+    position: relative;
+    z-index: 1;
+    padding: 0 0 180px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    text-decoration: none;
+    font-weight: $semibold;
+    color: $link-color;
+
+    @include transition(color 0.2s ease, background 0.2s ease, border 0.2s ease, opacity 0.2s ease);
+  }
+
+  // ::-moz-selection {
+  //   background: $selection-bg;
+  //   color: $selection-color;
+  //   text-shadow: none;
+  // }
+
+  // ::selection {
+  //   background: $selection-bg;
+  //   color: $selection-color;
+  //   text-shadow: none;
+  // }
+
+  // Development only
+
+  // ::-webkit-scrollbar { display: none; }
+
+/*
+ * Plugins
+ */
+
+  @import "plugins/swiper.js";
+
+  @import "plugins/mapbox";
+
+  @import "plugins/nprogress";
+
+/*
+ * Modules
+ */
+
+  @import "modules/fonts";
+
+  @import "modules/assets";
+
+  @import "modules/grid";
+
+  @import "modules/type";
+
+  @import "modules/buttons";
+
+  @import "modules/forms";
+
+  @import "modules/animate";
+
+/*
+ * Specifics
+ */
+
+  @import "parts/header";
+
+  @import "parts/footer";
+
+  @import "parts/opensource";
+
+/*
+ * Media
+ */
+
+  @import "modules/touch";
+
+  @import "modules/media";
+
+  @import "modules/retina";
